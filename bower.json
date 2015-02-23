@@ -1,0 +1,45 @@
+{
+  "name": "ad-connect",
+  "version": "0.0.0",
+  "homepage": "https://github.com/SD-adconnect/Ad-Connect",
+  "authors": [
+    "Mathew Allen <mathew.w.allen@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.5.4",
+    "app-router": "~2.4.0",
+    "core-animated-pages": "Polymer/core-animated-pages#~0.5.4",
+    "core-toolbar": "Polymer/core-toolbar#~0.5.4",
+    "core-scaffold": "Polymer/core-scaffold#~0.5.4",
+    "core-menu": "Polymer/core-menu#~0.5.4",
+    "core-item": "Polymer/core-item#~0.5.4",
+    "core-ajax": "Polymer/core-ajax#~0.5.4",
+    "core-icon": "Polymer/core-icon#~0.5.4",
+    "core-icons": "Polymer/core-icons#~0.5.4",
+    "facebook-button": "~0.2.0",
+    "facebook-login": "*",
+    "paper-icon-button": "Polymer/paper-icon-button#~0.5.4",
+    "core-field": "Polymer/core-field#~0.5.0",
+    "paper-tabs": "Polymer/paper-tabs#~0.5.4",
+    "paper-button": "Polymer/paper-button#~0.5.4",
+    "core-header-panel": "Polymer/core-header-panel#~0.5.4",
+    "paper-radio-button": "Polymer/paper-radio-button#~0.5.4",
+    "core-input": "Polymer/core-input#~0.5.4",
+    "paper-input": "Polymer/paper-input#~0.5.4",
+    "paper-radio-group": "Polymer/paper-radio-group#~0.5.5"
+  },
+  "resolutions": {
+    "core-component-page": "^0.5",
+    "polymer": "~0.5.2",
+    "webcomponentsjs": "^0.5"
+  }
+}

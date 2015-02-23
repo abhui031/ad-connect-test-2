@@ -1,0 +1,119 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/core-ajax/core-ajax.html">
+
+<polymer-element name="t2-crud" attributes="endpoint methods">
+    <template>
+        
+        <core-ajax id="getRequest" 
+                 url="{{endpoint}}"
+                 handleAs="json"
+                 contentType="application/json"
+                 method="GET"
+                 on-core-response="{{onGetComplete}}"
+                 on-core-error="{{onGetError}}"></core-ajax>
+        <core-ajax id="postRequest"
+                 url="{{endpoint}}"
+                 handleAs="json"
+                 contentType="application/json"
+                 method="POST"
+                 on-core-response="{{onPostComplete}}"
+                 on-core-error="{{onPostError}}"></core-ajax>
+        <core-ajax id="putRequest"
+                 url=""
+                 handleAs="json"
+                 contentType="application/json"
+                 method="PUT"
+                 on-core-response="{{onPutComplete}}"
+                 on-core-error="{{onPutError}}">
+        </core-ajax>
+        <core-ajax id="deleteRequest"
+                 url=""
+                 handleAs="json"
+                 contentType="application/json"
+                 method="DELETE"
+                 on-core-response="{{onDeleteComplete}}"
+                 on-core-error="{{onDeleteError}}"></core-ajax>
+
+    </template>
+    <script>
+      
+        Polymer('mallen-crud', {
+        
+            endpoint: '',
+          
+            methods: ['get', 'put', 'post', 'delete'],
+          
+            isLoading: function () {
+              // the service is loading if any of the requests are
+              return (this.$.postRequest.loading || this.$.getRequest.loading || this.$.putRequest.loading || this.$.deleteRequest.loading);
+            }, 
+          
+            _doRequest: function (method, config) {
+              var request = this.$[method + 'Request'];
+              config = config || {};
+              request.params = config.params;
+              if (method == "post" || method == "put") {
+                request.body = JSON.stringify(config.body);
+              }
+              request.go();
+            },
+            
+            _fireAjaxEvent: function (method, outcome, e) {
+              this.fire(method + '-' + outcome, { response: e.detail.response });
+            },
+            
+            get: function (config) { 
+              this._doRequest('get', config); 
+            },
+          
+            post: function (config) { 
+              this._doRequest('post', config); 
+            },
+          
+            put: function (id, config) { 
+              var request = this.$.putRequest;
+              request.url = this.endpoint + '/' + id;
+              request.body = JSON.stringify(config.body);
+              request.go();
+            },
+          
+            delete: function (id) { 
+              var request = this.$.deleteRequest;
+              request.url = this.endpoint + '/' + id;
+              request.go();
+            },
+                
+            onGetComplete: function (e) {
+              this._fireAjaxEvent('get', 'complete', e);
+            },
+            
+            onPostComplete: function (e) {
+              this._fireAjaxEvent('post', 'complete', e);
+            },
+          
+            onPutComplete: function (e) {
+              this._fireAjaxEvent('put', 'complete', e);
+            },
+          
+            onDeleteComplete: function (e) {
+              this._fireAjaxEvent('delete', 'complete', e);
+            },
+                  
+            onGetError: function (e) {
+              this._fireAjaxEvent('get', 'Error', e);
+            },
+            
+            onPostError: function (e) {
+              this._fireAjaxEvent('post', 'Error', e);
+            },
+          
+            onPutError: function (e) {
+              this._fireAjaxEvent('put', 'Error', e);
+            },
+          
+            onDeleteError: function (e) {
+              this._fireAjaxEvent('delete', 'Error', e);
+            }
+        });
+    </script>
+</polymer-element>

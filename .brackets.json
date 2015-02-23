@@ -1,0 +1,8 @@
+{
+    "jscodehints.detectedExclusions": [
+        "C:/Sites/ad-connect/public/bower_components/app-router/src/app-router.js",
+        "C:/Sites/ad-connect/public/bower_components/webcomponentsjs/webcomponents.min.js",
+        "C:/Sites/ad-connect/app.js",
+        "C:/Sites/ad-connect/api/index.js"
+    ]
+}

@@ -1,0 +1,109 @@
+<script src="../bower_components/webcomponentsjs/webcomponents.js"> </script>
+<link rel="import" href="../bower_components/polymer/polymer.js">
+<link rel="import" href="../bower_components/core-toolbar/core-toolbar.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../bower_components/paper-radio-button/paper-radio-button.html">
+<link rel="import" href="../bower_components/paper-radio-group/paper-radio-group.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<!-- #CBDEE7 -->
+<polymer-element name="sign-up">
+  <template>
+    <style>
+      core-toolbar{
+	    color: #A1A1A1;
+        background: #F7F7F7;
+	  }
+	  .menu-tabs{
+	    background: #EFEFEF;
+        border-radius: 10px;
+        margin: 0 10px 0 0;
+	  }
+	  paper-tab a{
+	    text-decoration: none;
+	    color: #A1A1A1;
+	  }
+	  .ad-body{
+		text-align: center;
+	  }
+	  .ad-body-text{
+	    font-size: 30px;
+        color: #A1A1A1;
+        font-family: sans-serif;
+        margin-top: 50px;
+	  }
+	  .sign-up-social{
+	    margin-top:30px;
+	  }
+	  paper-button{
+		background: #5AAEE2;
+        color: #fff;
+        margin-top: 10px;
+        width: 250px;
+		border-radius: 8px;
+		margin-bottom: 2px;
+	  }
+	  paper-input{
+	    width: 250px;
+	  }
+	  paper-radio-button[checked].blue::shadow #offRadio {
+        border-color: #4285f4;
+      }
+	  paper-radio-button{
+	    margin-right: 10px;
+	  }
+    </style>
+  
+    <core-toolbar>
+	  <div flex>Ad Connect</div>
+	  <paper-tabs selected="0" noink nobar>
+        <div class="menu-tabs" horizontal center layout>
+	      <paper-tab>
+		    <core-icon aria-label="home" icon="home" role="img"></core-icon>
+		    <a href="/" >Home</a>
+          </paper-tab>
+          <paper-tab>
+		    <core-icon aria-label="lock" icon="lock" role="img"></core-icon>
+	        <a href="/#/login">Login</a>
+          </paper-tab>
+	    </div>
+      </paper-tabs>
+	</core-toolbar>
+	
+	<section vertical center layout>
+	    <div style="margin-top: 20px; color: #A1A1A1;">
+		  <paper-radio-group id="type-user">
+		    <paper-radio-button class="blue" label="I'm an Owner" toggles></paper-radio-button>
+		    <paper-radio-button class="blue" label="Advertiser" toggles></paper-radio-button>
+		  </paper-radio-group>
+		</div>
+		<div  vertical center layout class="sign-up-social">
+		  <paper-button>Sign up with Facebook</paper-button>
+		  <paper-button>Sign up with Google+</paper-button>
+		  <paper-button>Sign up with Twitter</paper-button>
+        </div>
+    </section>
+	
+	<section vertical center layout>
+	  <div class="ad-body-text">
+	    Or Create An Account
+	  </div>
+      <div vertical center layout>
+	    <paper-input floatinglabel id="email" label="Email">
+        </paper-input>
+		<paper-input floatinglabel id="password" label="Password">
+        </paper-input>
+		<paper-input floatinglabel id="passconf" label="Confirm Password">
+        </paper-input>
+		<paper-button>
+		  <core-icon aria-label="create" icon="create" role="img"></core-icon>
+		  Sign Up
+		</paper-button>
+      </div>
+    </section>
+  </template>
+<script>
+Polymer('sign-up', {
+});
+</script>
+<polymer-element>

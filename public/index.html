@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+   <script src="bower_components/webcomponentsjs/webcomponents.js">
+   </script>
+   <link rel="import" href="bower_components/polymer/polymer.js">
+
+   <!-- Bower Elements- -->
+   <link rel="import" href="bower_components/core-animated-pages/core-animated-pages.html">
+   <link rel="import" href="bower_components/app-router/app-router.html">
+ </head>
+ <style>
+   body{
+     font-family: sans-serif;
+	 font-weight: bold;
+   }
+ </style>
+
+  <body fullbleed>
+    <app-router core-animated-pages transitions="slide-from-right">
+    <app-route path="/" import="prototype/home-page.html"></app-route>
+	  <app-route path="/login" import="prototype/login-page.html"></app-route>
+	  <app-route path="/signup" import="prototype/sign-up.html"></app-route>
+	  <app-route path="/addashboard" import="prototype/ad-dashboard.html"></app-route>
+	  <app-route path="/owdashboard" import="prototype/ow-dashboard.html"></app-route>
+    <app-route path="/listspots" import="prototype/listed-spots.html"></app-route>
+	</app-router>
+  </body>
+</html>

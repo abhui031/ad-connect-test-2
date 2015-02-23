@@ -1,0 +1,37 @@
+{
+  "name": "ad-connect",
+  "version": "1.0.0",
+  "description": "wip",
+  "main": "app.js",
+  "scripts": {
+    "test": "test",
+    "start": "node ./bin/www",
+    "greet": "node ./bin/sayhi"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "T2",
+  "license": "Some Scary License",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.10.1",
+    "epilogue": "^0.3.3",
+    "express": "^4.11.0",
+    "json-request": "0.0.1",
+    "needle": "^0.7.11",
+    "pg": "^4.2.0",
+    "q": "^1.1.2",
+    "request": "^2.53.0",
+    "sequelize": "^2.0.0-rc1",
+    "sequelize-cli": "^1.0.4",
+    "sqlite3": "^3.0.4",
+    "subclass-error": "0.0.2",
+    "underscore.string": "^3.0.2"
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.4.x"
+  }
+}

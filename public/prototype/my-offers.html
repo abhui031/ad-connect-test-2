@@ -1,0 +1,154 @@
+<script src="../bower_components/webcomponentsjs/webcomponents.js"></script>
+<link rel="import" href="../bower_components/core-animated-pages/core-animated-pages.html">
+<link rel="import" href="../bower_components/core-icons/core-icons.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+  
+  <polymer-element name="my-offers">
+  <template>
+
+    <style>
+      .card-container {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        text-align: center;
+		background: #F7F7F7;
+		border-radius: 10px;
+      }
+      .offer-card {
+        display: inline-block;
+        position: relative;
+        border-radius: 10px;
+        margin: 10px;
+        overflow: hidden;
+        text-align: start;
+        background: #F2F0F0;
+		color: #747474;
+		box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16);
+      }
+      .left-image {
+        width: 300px;
+        height: 150px;
+        background: #FAFAFA;
+		border: 1px solid #FAFAFA;
+      }
+	  .card-contain{
+        width: 300px;
+        height: 150px;
+        background-color: #F7F8F9;
+		border: 1px solid #FAFAFA;
+      }
+	  .offer-title{
+	    font-weight: bold;
+	    height: 49px;
+	  }
+	  .offer-price{
+	    font-weight: bold;
+	    height: 49px;
+	    border-top: 1px solid #EFEFEF;
+	  }
+	  .offer-date{
+	    font-weight: bold;
+	    height: 49px;
+	    border-top: 1px solid #EFEFEF;
+	  }
+	  .chip-companyName-title {
+        font-weight: bold;
+      }
+      #details {
+        padding: 10px;
+	  }
+      .card {
+        height: 560px;
+		width: 400px;
+        text-align: start;
+        overflow: hidden;
+        background: #F4F4F4;
+		border-radius: 10px;
+		margin: auto;
+        box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      }
+      .card-left {
+	    width: 400px;
+        height: 300px;
+      }
+      .card-icon {
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        margin-right: 16px;
+		margin-left: 2px;
+		margin-top: 2px;
+		border: 3px solid;
+		border-color: rgba(208, 0, 8, 0.51);
+      }
+      .card-companyName-title {
+        font-size: 2em;
+      }
+    </style>
+	
+	<section>
+        <div class="card-container">
+          <template repeat="{{items as item}}">
+
+            <div class="offer-card">
+			  <div class="left-image"></div>
+			  <div class="card-contain">
+			    <div class="offer-title" horizontal center layout>
+				  <div flex style="margin-left: 2px;">{{item.companyName}}</div>
+				  <div>Details</div>
+				  <paper-icon-button icon="chevron-right" style="margin-right: 2px;"></paper-icon-button>
+				</div>
+			    <div class="offer-price" horizontal center layout>
+				  <div flex style="margin-left: 2px;">Price</div>
+				  <div style="margin-right: 45px;">{{item.price}}</div>
+				</div>
+				<div class="offer-date" horizontal center layout>
+				  <div flex style="margin-left: 2px;">Date</div>
+				  <div style="margin-right: 20px;">{{item.date}}</div>
+		        </div>
+			  </div>
+	       </div>
+         </template>
+		</div>
+      </section>
+
+	  <section id="details">
+        <div class="card" layout vertical hero-id="{{selectedcompanyName.companyDsc}}-{{selectedcompanyName.companyName}}" hero on-tap="{{transition}}">
+          <div class="card-left" style="background:{{selectedcompanyName.color}};" hero-id="{{selectedcompanyName.companyDsc}}-{{selectedcompanyName.companyName}}-art" hero></div>
+		  <div flex>
+            <div layout horizontal center>
+              
+			  <div>
+                <div class="card-icon" style="background:{{selectedcompanyName.color}};"></div>
+              </div>
+              <div flex>
+                <div class="card-companyName-title">{{selectedcompanyName.companyName}}</div>
+                <div class="card-companyName-companyDsc">{{selectedcompanyName.companyDsc}}</div>
+              </div>
+			  
+            </div>
+          </div>
+        </div>
+      </section>
+	  </core-animated-pages>
+  </template>
+  <script>
+
+    Polymer('my-offers', {
+      items: [
+        { companyDsc: '............', companyName: 'Bobs Burger', price: '100$', date: "16/02/2015"},
+		{ companyDsc: '............', companyName: 'Bobs Burger', price: '100$', date: "16/02/2015"},
+		{ companyDsc: '............', companyName: 'Bobs Burger', price: '100$', date: "16/02/2015"},
+		{ companyDsc: '............', companyName: 'Bobs Burger', price: '100$', date: "16/02/2015"},
+		{ companyDsc: '............', companyName: 'Bobs Burger', price: '100$', date: "16/02/2015"},
+		{ companyDsc: '............', companyName: 'Bobs Burger', price: '100$', date: "16/02/2015"},
+		{ companyDsc: '............', companyName: 'Bobs Burger', price: '100$', date: "16/02/2015"},
+		{ companyDsc: '............', companyName: 'Bobs Burger2', price: '100$', date: "16/02/2015"}
+      ]
+    });
+
+  </script>
+  </polymer-element>
+

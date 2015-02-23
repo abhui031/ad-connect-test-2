@@ -1,0 +1,27 @@
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<!-- Bower Elements- -->
+<link rel="import" href="../bower_components/core-animated-pages/core-animated-pages.html">
+<link rel="import" href="../bower_components/app-router/app-router.html">
+
+<!-- My Elements-->
+<link rel="import" href="hello-world.html">
+
+<polymer-element name="ac-app">
+	<template>
+		<app-router core-animated-pages transitions="slide-from-right">
+	       <app-route path="/" import="pages/home-page.html"></app-route>
+	       <app-route path="/login" import="pages/login-page.html"></app-route>
+	       <app-route path="/some" import="pages/some-page.html"></app-route>
+	       <app-route path="/account/:username"  import="pages/user-page.html"></app-route>
+	       <app-route path="*" import="/pages/not-found-page.html"></app-route>
+	    </app-router>
+	</template>
+	
+	<script>
+		Polymer('ac-app', {
+
+		});
+	</script>
+</polymer-element>

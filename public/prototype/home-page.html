@@ -1,0 +1,104 @@
+<script src="../bower_components/webcomponentsjs/webcomponents.js"> </script>
+<link rel="import" href="../bower_components/polymer/polymer.js">
+<link rel="import" href="../bower_components/core-toolbar/core-toolbar.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-tabs/paper-tabs.html">
+<!-- #CBDEE7 -->
+<polymer-element name="home-page">
+  <template>
+    <style>
+      core-toolbar{
+	    color: #A1A1A1;
+        background: #F7F7F7;
+	  }
+	  .menu-tabs{
+	    background: #EFEFEF;
+        border-radius: 10px;
+        margin: 0 10px 0 0;
+	  }
+	  paper-tab a{
+	    text-decoration: none;
+	    color: #A1A1A1;
+	  }
+	  .ad-body{
+		background: #5AAEE2;
+		text-align: center;
+	  }
+	  .ad-body-text{
+	    font-size: 100px;
+        color: white;
+        font-family: sans-serif;
+        margin-top: 50px;
+	  }
+	  paper-button{
+	    background: #EFEFEF;
+        color: #A1A1A1;
+        margin-top: 40px;
+        margin-bottom: 70px;
+	  }
+	  paper-button a{
+	  	text-decoration: none;
+	    color: #A1A1A1;
+	  }
+    </style>
+  
+    <core-toolbar>
+	  <div flex>Ad Connect</div>
+	  <paper-tabs selected="0" noink nobar>
+        <div class="menu-tabs" horizontal center-center layout>
+	      <paper-tab>
+		    <core-icon aria-label="lock" icon="lock" role="img"></core-icon>
+		    <a href="/#/login" >Login</a>
+          </paper-tab>
+          <paper-tab>
+		    <core-icon aria-label="create" icon="create" role="img"></core-icon>
+	        <a href="/#/signup">Sign Up</a>
+          </paper-tab>
+		  <paper-tab>
+	        <a href="/#/owdashboard">Owner</a>
+          </paper-tab>
+		  <paper-tab>
+	        <a href="/#/addashboard">Advertiser</a>
+          </paper-tab>
+	    </div>
+      </paper-tabs>
+	</core-toolbar>
+	
+	<section>
+      <div class="ad-body">
+	    <br />
+	    <div class="ad-body-text">
+		  Ad Connect
+		</div>
+		<div>
+		  <paper-button> <a href="/#/listspots">
+		  Find the right spotAdvertiser</a></paper-button>
+		  <paper-button>List your business</paper-button>
+        </div>
+	  </div>
+    </section>
+	
+	<section>
+      <div style="font-family: sans-serif;
+                  margin-top: 50px;
+				  color: #A1A1A1;
+				  text-align: center;
+				 ">
+	   text text 
+      </div>
+    </section>
+  </template>
+<script>
+Polymer('home-page', {
+});
+
+/*
+document.addEventListener('polymer-ready', function() {
+  var navicon = document.getElementById('navicon');
+  var drawerPanel = document.getElementById('drawerPanel');
+  navicon.addEventListener('click', function() {
+    drawerPanel.togglePanel();
+  });
+});*/
+</script>
+<polymer-element>

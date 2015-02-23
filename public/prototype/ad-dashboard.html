@@ -1,0 +1,139 @@
+<script src="../bower_components/webcomponentsjs/webcomponents.js"> </script>
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/core-toolbar/core-toolbar.html">
+<link rel="import" href="../bower_components/core-menu/core-menu.html">
+<link rel="import" href="../bower_components/core-item/core-item.html">
+<link rel="import" href="../bower_components/core-header-panel/core-header-panel.html">
+<link rel="import" href="../bower_components/core-drawer-panel/core-drawer-panel.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/core-field/core-field.html">
+<link rel="import" href="../bower_components/app-router/app-router.html">
+<link rel="import" href="../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html"/>
+<link rel="import" href="../bower_components/core-animated-pages/core-animated-pages.html">
+<link rel="import" href="advanced-search.html">
+<link rel="import" href="my-offers.html">
+<link rel="import" href="my-account.html">
+<polymer-element name="ad-dashboard">
+<template>
+  <style>
+    core-header-panel {
+      background: #F7F7F7;
+    }
+    core-toolbar {
+      color: #A1A1A1;
+      background: #F7F7F7;
+    }
+	core-menu{
+	  color: #A1A1A1;
+      background: #F7F7F7;
+	}
+	.menu-header{
+	  margin-bottom: 40px;
+      text-align: center;
+	}
+    core-item {
+      border-top: 1px solid #ccc;
+    }
+    core-menu > core-item.core-selected {
+      background: #EFEFEF;
+    }
+    core-item a {
+      text-decoration: none;
+      color: #A1A1A1;
+      margin-left: 5px;
+    }
+	.menu-tabs{
+      background: #EFEFEF;
+      border-radius: 10px;
+      margin: 0 10px 0 0;
+	}
+	paper-tab a{
+	  text-decoration: none;
+	  color: #A1A1A1;
+	}
+</style>
+<core-drawer-panel>
+
+  <core-header-panel drawer>
+  
+    <core-toolbar>
+      <div flex>Ad Connect</div>
+    </core-toolbar>
+	
+    <core-menu>
+	  <div class="menu-header">Advertiser Dashboard</div>
+	  
+      <core-item icon="search" label="Advanced Search">
+	    <a href="/#/prototype/advancedsearch"></a>
+	  </core-item>
+	  <core-item icon="bookmark" label="My offers">
+	    <a href="/#/prototype/myoffers"></a>
+	  </core-item>
+	  <core-item id="user-pro" icon="account-box" label="My account">
+	    <a href="/#/prototype/myaccount"></a>
+	  </core-item>
+	  <core-item icon="" label="">
+	    <a href="/#/"></a>
+	  </core-item>
+    </core-menu>
+	
+   </core-header-panel>
+
+  <core-header-panel main style="background-color: #fff;">
+    <core-toolbar>
+	  <paper-icon-button core-drawer-toggle icon="menu"></paper-icon-button>
+	
+	  <div flex></div>
+	  <paper-icon-button id="searchicon" icon="search" on-click="{{toggleSearch}}"></paper-icon-button>
+	  <div id="search" hidden flex>
+	    <paper-input-decorator aria-label="search" icon="search" role="img" >
+	      <input type="search" id="searchinput" on-keyup="{{onKeyPress}}" autocomplete="off">
+	    </paper-input-decorator>
+	  </div>
+		
+	    <paper-icon-button hidden id="backicon" icon="close" on-click="{{toggleBack}}"></paper-icon-button>
+	
+	    <paper-tabs selected="0" noink nobar>
+          <div class="menu-tabs" horizontal center layout>
+	        <paper-tab>
+		      <core-icon aria-label="home" icon="home" role="img"></core-icon>
+		      <a href="/" >Home</a>
+            </paper-tab>
+            <paper-tab>
+              <core-icon aria-label="exit-to-app" icon="exit-to-app" role="img"></core-icon>
+              <a href="/#/logout">Logout</a>
+            </paper-tab>
+	      </div>
+        </paper-tabs>
+      </core-toolbar>
+
+	  <app-router core-animated-pages transitions="slide-from-right">
+	    <app-route path="/prototype/advancedsearch" element="advanced-search"></app-route>
+        <app-route path="/prototype/myoffers" element="my-offers"></app-route>
+	    <app-route path="/prototype/myaccount" element="my-account"></app-route>
+      </app-router>
+	
+    </core-header-panel>
+  </core-drawer-panel>
+
+  </template>
+<script>
+Polymer('ad-dashboard', {
+  //I'll edit this part later
+      toggleSearch: function(e, detail, sender) {
+        this.async(function() {
+		  this.$.search.hidden = false;
+		  this.$.backicon.hidden = false;
+		  this.$.searchicon.hidden = true;
+                  this.$.searchinput.focus();
+        });
+      },
+      toggleBack: function(e, detail, sender) {
+        this.$.search.hidden = true;
+	this.$.backicon.hidden = true;
+	this.$.searchicon.hidden = false;
+      }
+});
+</script>
+<polymer-element>

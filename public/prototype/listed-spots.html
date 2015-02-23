@@ -1,0 +1,113 @@
+<script src="../bower_components/webcomponentsjs/webcomponents.js"> </script>
+<link rel="import" href="../bower_components/polymer/polymer.js">
+<link rel="import" href="../bower_components/core-toolbar/core-toolbar.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../bower_components/paper-radio-button/paper-radio-button.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+
+<!-- #CBDEE7 -->
+<polymer-element name="listed-spots">
+  <template>
+    <style>
+      core-toolbar{
+      color: #A1A1A1;
+        background: #F7F7F7;
+    }
+    .menu-tabs{
+      background: #EFEFEF;
+        border-radius: 10px;
+        margin: 0 10px 0 0;
+    }
+    paper-tab a{
+      text-decoration: none;
+      color: #A1A1A1;
+    }
+    .ad-body{
+    text-align: center;
+    }
+    .ad-body-text{
+      font-size: 20px;
+        color: black;
+        font-family: sans-serif;
+        margin-top: 20px;
+    }
+    .sign-up-social{
+      margin-top:30px;
+    }
+    paper-button{
+    background: #5AAEE2;
+        color: #fff;
+        font-size: 12px;
+        margin-top: 6px;
+        width: 100px;
+    border-radius: 100px;
+    margin-bottom: 6px;
+    }
+   
+    paper-input{
+      width: 250px;
+    }
+    paper-radio-button[checked].blue::shadow #offRadio {
+        border-color: #4285f4;
+      }
+    paper-radio-button{
+      margin-right: 10px;
+    }
+    .spotlists > p {
+      margin: 10px;
+    }
+
+    </style>
+    <core-header-panel mode="scroll" flex>
+     <core-toolbar>
+    <div flex>Ad Connect</div>
+    <paper-tabs selected="0" noink nobar>
+        <div class="menu-tabs" horizontal center layout>
+        <paper-tab>
+        <core-icon aria-label="home" icon="home" role="img"></core-icon>
+        <a href="/" >Home</a>
+          </paper-tab>
+          <paper-tab>
+        <core-icon aria-label="create" icon="create" role="img"></core-icon>
+          <a href="/#/signup">Sign Up</a>
+          </paper-tab>
+      </div>
+      </paper-tabs>
+  </core-toolbar>
+
+  <div class="spotlists" layout vertical center>
+    <p vertical center layout> <div class="ad-body-text" >   Barrhaven Cineplex    </div>
+        <div >   <img src="cineplex-odeon-barrhaven.jpg" style="width:304px;height:228px">   </div>
+        <div >
+        <paper-button >Detail</paper-button>
+        <paper-button >Purchase</paper-button>
+        </div>
+    </p>
+    <p> <div class="ad-body-text" >    Carlingwood Shopping Center    </div>
+      <div>
+      <img src="carlingwood-shopping.jpg" style="width:304px;height:228px" >
+      </div>
+      <div >
+        <paper-button >Detail</paper-button>
+        <paper-button >Purchase</paper-button>
+        </div>
+    </p>
+    <p> <div class="ad-body-text" >   Big Rig Kitchen and Brewery  </div>
+      <div >
+      <img src="big-rig.jpg" style="width:304px;height:228px">
+      </div>
+      <div >
+        <paper-button >Detail</paper-button>
+        <paper-button >Purchase</paper-button>
+      </div></p>
+  </div>
+  </core-header-panel>
+  
+   
+</template>
+<script>
+Polymer('listed-spots', {
+});
+</script>
+<polymer-element>

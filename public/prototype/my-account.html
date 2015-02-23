@@ -1,0 +1,70 @@
+<script src="../bower_components/webcomponentsjs/webcomponents.js"> </script>
+<link rel="import" href="../bower_components/polymer/polymer.js">
+<link rel="import" href="../bower_components/core-toolbar/core-toolbar.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../bower_components/paper-radio-button/paper-radio-button.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<!-- #CBDEE7 -->
+<polymer-element name="my-account">
+  <template>
+    <style>
+	  .ad-body-text{
+	    font-size: 30px;
+        color: #A1A1A1;
+        font-family: sans-serif;
+        margin-top: 50px;
+	  }
+	  paper-button{
+		background: #5AAEE2;
+        color: #fff;
+        margin-top: 10px;
+        width: 250px;
+		border-radius: 8px;
+		margin-bottom: 2px;
+	  }
+	  paper-input{
+	    width: 250px;
+	  }
+	  .card-container {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        left: 10px;
+		background: #F7F7F7;
+		border-radius: 10px;
+      }
+    </style>
+    <div class="card-container">
+    
+	<section>
+	  <div class="ad-body-text">
+	    My Profile
+	  </div>
+      <div vertical center layout>
+	    <paper-input floatinglabel id="firstname" label="First Name">
+        </paper-input>
+		<paper-input floatinglabel id="lastname" label="Last Name">
+        </paper-input>
+		<paper-input floatinglabel id="address" label="Address">
+        </paper-input>
+	    <paper-input floatinglabel id="email" label="Email">
+        </paper-input>
+		<paper-input floatinglabel id="password" label="Password">
+        </paper-input>
+		<paper-input floatinglabel id="passconf" label="Confirm Password">
+        </paper-input>
+		
+		<paper-button>
+	    <core-icon aria-label="settings" icon="settings" role="img"></core-icon>
+		  Edit
+		</paper-button>
+      </div>
+    </section>
+	</div>
+  </template>
+<script>
+Polymer('my-account', {
+});
+</script>
+<polymer-element>

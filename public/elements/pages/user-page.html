@@ -1,0 +1,47 @@
+<link rel="import" href="layouts/toolbar-layout.html">
+<link rel="import" href="../../bower_components/core-ajax/core-ajax.html">
+
+ <polymer-element name="user-page" attributes="username">
+  <template>
+   <toolbar-layout ptitle="{{username}}">
+    
+    <nav>
+      <a href="/#/some">Some page</a>
+    </nav>
+    
+    <div class="tools">
+      
+    </div>
+    
+    <core-ajax 
+      url="http://localhost:3000/api/users?username={{username}}"
+      handleAs="json"
+      contentType="application/json"
+      method="GET"
+      on-core-response="{{loaded}}"
+      auto="true">
+      
+    </core-ajax>
+    <p>Demo page using a path variable {{username}}</p>
+    <pre>
+      Username: {{data.username}}
+      id: {{data.id}}
+      Stores: <template repeat="{{store in data.Stores}}"> {{store.name}} </template>
+    </pre>
+   </toolbar-layout>
+   
+
+  </template>
+     <script>
+      Polymer('user-page', {
+        
+        data: {},
+        
+        loaded: function (e, detail) {
+          console.log(detail);
+          this.data = detail.response[0];
+        }
+      }); 
+   </script>
+</polymer-element>
+ 
